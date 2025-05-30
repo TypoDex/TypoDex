@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("../../ressources/articles.json")
+  fetch("../assets/scripts/ressources/articles.json")
     .then((response) => response.json())
     .then((articles) => {
       const section = document.getElementById("articles");
