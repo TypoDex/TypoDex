@@ -1,0 +1,18 @@
+// ============================================================================
+// _reset.scss
+// Réinitialisation de styles de base pour harmoniser le rendu entre navigateurs.
+// Tu peux utiliser un reset personnalisé ou un normalizer comme base.
+// ============================================================================
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// html,
+// body {
+//   //height: 100%;
+// }

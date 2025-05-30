@@ -1,0 +1,437 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: pink;
+}
+
+@media screen and (max-width: 1280px) {
+  body {
+    background-color: #579ee0;
+  }
+}
+@media screen and (max-width: 768px) {
+  body {
+    background-color: #81ce80;
+  }
+}
+@media screen and (max-width: 414px) {
+  body {
+    background-color: #867334;
+  }
+}
+@media screen and (max-width: 375px) {
+  body {
+    background-color: #ad3737;
+  }
+}
+@media screen and (max-width: 360px) {
+  body {
+    background-color: #321c35;
+  }
+}
+[data-color-theme=red] {
+  --body-color: #e8afab;
+  --color-50: #fcf5f4;
+  --color-100: #f9e8e7;
+  --color-200: #f4d6d4;
+  --color-300: #e8afab;
+  --color-400: #de908b;
+  --color-500: #ce6c65;
+  --color-600: #b8514a;
+  --color-700: #9a413b;
+  --color-800: #803934;
+  --color-900: #6c3430;
+  --color-950: #391816;
+}
+
+[data-color-theme=green] {
+  --body-color: #c0d684;
+  --color-50: #f6f9ec;
+  --color-100: #ecf2d5;
+  --color-200: #d8e6b0;
+  --color-300: #c0d684;
+  --color-400: #a4c259;
+  --color-500: #87a73b;
+  --color-600: #69842c;
+  --color-700: #506625;
+  --color-800: #425222;
+  --color-900: #394621;
+  --color-950: #1c260d;
+}
+
+[data-color-theme=blue] {
+  --body-color: #99c8d6;
+  --color-50: #f4f9fb;
+  --color-100: #e8f1f6;
+  --color-200: #cde3ea;
+  --color-300: #99c8d6;
+  --color-400: #6db1c3;
+  --color-500: #4b97ac;
+  --color-600: #387b91;
+  --color-700: #2f6375;
+  --color-800: #2a5362;
+  --color-900: #274753;
+  --color-950: #1a2e37;
+}
+
+:root {
+  --body-color: white;
+  --text-color: black;
+}
+
+body {
+  background-color: var(--body-color);
+  color: #333538;
+  font-family: sans-serif;
+  padding: 35px;
+  position: relative;
+  z-index: 0;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/assets/images/background.png");
+  mix-blend-mode: multiply;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.site-wrapper {
+  display: grid;
+  gap: 1.875rem;
+}
+.site-wrapper [class^=content-] {
+  background: #f6f7f8;
+  padding: clamp(0.938rem, 5vw, 2.188rem);
+  border-radius: 25px;
+}
+@media screen and (max-width: 768px) {
+  .site-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+body[data-color-theme=blue] .site-wrapper {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  grid-template-areas: "main main" "irl credits";
+}
+
+.content-main {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 30px;
+  grid-template-areas: "titre nav" "titre content";
+}
+.content-main main {
+  display: grid;
+  gap: 15px;
+  grid-area: content;
+}
+@media screen and (max-width: 1280px) {
+  .content-main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+.content-irl {
+  grid-area: irl;
+}
+.content-credits {
+  grid-area: credits;
+}
+
+section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+}
+
+.hidden {
+  display: none;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 15px 0px;
+}
+.filters button {
+  border: none;
+  cursor: pointer;
+  background: #dcdfe1;
+  box-shadow: inset 0px 0px 0px 1px rgba(51, 53, 56, 0.2);
+  padding: 5px 10px;
+  border-radius: 100px;
+  font-size: 15px;
+  font-family: "inter";
+  white-space: nowrap;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.filters button:before {
+  content: "# ";
+  color: var(--color-500);
+}
+.filters button.active {
+  background: var(--color-400);
+  color: #f6f7f8;
+}
+.filters button.active:before {
+  content: "# ";
+  color: var(--color-700);
+}
+
+article {
+  padding: 20px;
+  border-radius: 15px;
+  background: #ebedee;
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset 0px 0px 0px 1px rgba(51, 53, 56, 0.2);
+  transition: all 0.3s ease;
+  gap: 5px;
+}
+article a {
+  font-family: "manrope";
+  font-size: 20px;
+  font-weight: 700;
+  color: #333538;
+  text-decoration: none;
+  line-height: 18px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+article p {
+  margin: 10px 0px;
+  max-height: 170px;
+  /* padding-right: 10px; */
+  overflow: auto;
+}
+article ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0px;
+  padding: 0px;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+article ul li {
+  background: #dcdfe1;
+  box-shadow: inset 0px 0px 0px 1px rgba(51, 53, 56, 0.2);
+  padding: 5px 10px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-family: "inter";
+  white-space: nowrap;
+  font-weight: 500;
+}
+article ul li:before {
+  content: "# ";
+  color: var(--color-500);
+}
+article:hover {
+  box-shadow: inset 0px 0px 0px 2px var(--color-400);
+}
+article:hover a {
+  color: var(--color-500);
+}
+
+time {
+  place-self: flex-end;
+  font-family: "manrope";
+  font-size: 14px;
+  font-weight: 700;
+  color: #727a83;
+  margin-bottom: 10px;
+}
+
+section:has(article:not([style*="display: none"])):not(:has(article:not([style*="display: none"]) ~ article:not([style*="display: none"]))) {
+  /* Sélecteur CSS :has + negation pour détecter "exactement 1 article visible" */
+  grid-template-columns: 300px;
+}
+
+.button {
+  display: inline-block;
+  background: var(--text-color);
+  cursor: pointer;
+  border-radius: 0.25rem;
+  color: var(--body-color);
+  border: none;
+  padding: 0.75rem 1.25rem;
+  transition: background 0.2s;
+}
+
+.card {
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+h3, h2, h1, header {
+  margin: 0px;
+  font-family: "manrope";
+  padding: 0px;
+}
+
+header {
+  grid-area: titre;
+  width: min-content;
+  font-weight: 800;
+  line-height: clamp(2.5rem, 6.5vw, 6.25rem);
+  font-size: clamp(2.1875rem, 7vw, 7.5rem);
+}
+@media screen and (max-width: 1280px) {
+  header {
+    width: auto;
+  }
+}
+
+h1 {
+  font-weight: 800;
+  line-height: clamp(1.375rem, 3.8vw, 2.125rem);
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+}
+h1 strong {
+  color: var(--color-500);
+}
+
+h2 {
+  font-weight: 700;
+  line-height: clamp(1.125rem, 3.3vw, 1.875rem);
+  font-size: clamp(1.25rem, 3.5vw, 2rem);
+}
+
+h3 {
+  margin: 0px 0px 15px 0px;
+  font-weight: 700;
+  line-height: clamp(1rem, 2.8vw, 1.75rem);
+  color: var(--color-400);
+  font-size: clamp(1.125rem, 3vw, 1.875rem);
+}
+
+p {
+  margin: 0px;
+  font-family: "inter";
+  line-height: 1.5;
+  padding: 0px;
+  font-size: clamp(0.938rem, 4vw + 1rem, 1rem);
+}
+
+strong[class^=h-] {
+  position: relative;
+  z-index: 0;
+  display: inline;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+strong[class^=h-]:before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 0.9em;
+  border-radius: 3px;
+  content: "";
+}
+
+header .h-200:before {
+  background: var(--color-200);
+  transform: translateY(-50%) rotate(1.36deg);
+}
+header .h-300:before {
+  background: var(--color-300);
+  transform: translateY(-50%) rotate(-1.32deg);
+}
+header .h-400:before {
+  background: var(--color-400);
+  transform: translateY(-50%) rotate(1.72deg);
+}
+header .h-500:before {
+  background: var(--color-500);
+  /* Pas de rotation si tu veux */
+  transform: translateY(-50%);
+}
+
+h2 .h-200:before {
+  /* Tu peux dupliquer ici ou supprimer si déjà en header */
+  background: var(--color-200);
+  transform: translateY(-50%) rotate(1.36deg);
+}
+
+p a,
+nav a {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  font-weight: 700;
+  text-decoration: none;
+  color: #333538;
+}
+p a:before,
+nav a:before {
+  position: absolute;
+  bottom: 3px;
+  z-index: -1;
+  width: 100%;
+  height: 6px;
+  background-color: var(--color-300);
+  transition: height 0.3s ease;
+  content: "";
+}
+p a:hover::before,
+nav a:hover::before {
+  height: 17px;
+  background-color: var(--color-400);
+}
+
+nav {
+  grid-area: nav;
+  display: flex;
+  column-gap: 30px;
+  row-gap: 0px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+nav a {
+  font-family: "manrope";
+  font-size: 18px;
+  font-weight: 800;
+}
+
+article p {
+  scrollbar-color: rgba(96, 102, 109, 0.3) rgba(96, 102, 109, 0.3);
+  scrollbar-width: thin;
+}
+
+.home h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.home p {
+  font-size: 1.125rem;
+}
+
+.ressources .section-title {
+  color: var(--text-color);
+  border-bottom: 2px solid var(--text-color);
+  margin-bottom: 1rem;
+}

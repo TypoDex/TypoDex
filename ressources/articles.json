@@ -1,0 +1,72 @@
+[
+  {
+    "date": "2025-05-12",
+    "title": "Bien choisir ses polices : l'art de l'association typographique",
+    "author": "Clara Design",
+    "summary": "Associer des polices est un exercice délicat. Il ne s'agit pas seulement d'esthétique, mais aussi de lisibilité et d'harmonie visuelle. Dans cet article, découvrez des combinaisons efficaces comme \"Playfair Display\" avec \"Roboto\" ou encore \"Montserrat\" avec \"Merriweather\".",
+    "tags": ["typographie", "association de polices", "design"]
+  },
+  {
+    "date": "2025-04-05",
+    "title": "Accessibilité web : 5 erreurs typographiques à éviter",
+    "author": "Yann UX",
+    "summary": "Une typographie mal choisie peut nuire considérablement à l’accessibilité de votre site. Couleurs trop contrastées, interlignage insuffisant ou polices fantaisistes… Voici les erreurs courantes et nos conseils pour les corriger afin d'améliorer l'expérience utilisateur.",
+    "tags": ["accessibilité", "typographie", "UX"]
+  },
+  {
+    "date": "2025-03-22",
+    "title": "Sites utiles pour les passionnés de typographie",
+    "author": "Jules Net",
+    "summary": "Que vous soyez designer, intégrateur ou simple curieux, certains sites sont de véritables mines d’or pour la typographie : Google Fonts, Fontpair, Typewolf ou encore Fontjoy. On vous présente nos favoris et comment les exploiter au mieux.",
+    "tags": ["ressources", "typographie", "outils"]
+  },
+  {
+    "date": "2025-02-18",
+    "title": "Bonnes pratiques typographiques pour le web",
+    "author": "Élodie T.",
+    "summary": "Le choix d’une police ne suffit pas. Il faut aussi gérer les tailles, interlignes, espacements et hiérarchies pour une lecture fluide. Ce guide vous donne les règles essentielles pour garantir lisibilité, rythme visuel et cohérence graphique.",
+    "tags": ["bonnes pratiques", "webdesign", "typographie"]
+  },
+  {
+    "date": "2025-01-03",
+    "title": "Accessibilité et contraste des polices : ce que dit le WCAG",
+    "author": "Alex Dev",
+    "summary": "Les normes WCAG imposent des niveaux de contraste entre le texte et l’arrière-plan. Mais comment choisir ses couleurs et ses polices tout en respectant ces critères ? On vous guide dans la mise en conformité de votre interface.",
+    "tags": ["accessibilité", "contraste", "WCAG"]
+  },
+  {
+    "date": "2025-05-26",
+    "title": "Comment adapter votre typographie au mobile",
+    "author": "Marion UI",
+    "summary": "Sur mobile, les contraintes de lecture sont différentes : taille d’écran réduite, luminosité variable, et attention limitée. Ce guide propose des astuces pour adapter vos styles typographiques aux petits écrans tout en gardant votre charte cohérente.",
+    "tags": ["responsive", "typographie", "mobile"]
+  },
+  {
+    "date": "2025-05-14",
+    "title": "Variables typographiques : vers une nouvelle flexibilité",
+    "author": "Romain Code",
+    "summary": "Les fonts variables offrent une grande flexibilité sans alourdir vos pages. Un seul fichier pour gérer plusieurs graisses, largeurs ou hauteurs ? C’est possible grâce aux polices variables. On vous explique comment les intégrer efficacement dans vos projets web.",
+    "tags": ["typographie", "fonts variables", "performance"]
+  },
+  {
+    "date": "2025-05-09",
+    "title": "Typographie inclusive : écrire pour tous",
+    "author": "Chloé Contenu",
+    "summary": "La typographie inclusive ne concerne pas que le langage, mais aussi la forme. Utiliser une police accessible aux personnes dyslexiques, ajuster l’interlignage, éviter l’italique à outrance… Voici les bonnes pratiques pour une typographie plus universelle.",
+    "tags": ["inclusion", "accessibilité", "typographie"]
+  },
+  {
+    "date": "2025-04-27",
+    "title": "Top 10 des combinaisons de polices à connaître en 2025",
+    "author": "Léo Graphik",
+    "summary": "Vous cherchez une paire de polices qui fonctionne à tous les coups ? Voici notre top 10 des associations qui marchent pour des interfaces modernes et lisibles. Bonus : toutes sont disponibles gratuitement sur Google Fonts !",
+    "tags": ["typographie", "association", "tendances"]
+  },
+  {
+    "date": "2025-04-03",
+    "title": "Audit typographique : que faut-il vérifier sur votre site ?",
+    "author": "Julie UX",
+    "summary": "Trop petit, trop serré, trop contrasté ? Un audit typographique permet d’évaluer si vos textes sont lisibles, hiérarchisés, accessibles et cohérents. Ce mini-guide vous propose une check-list en 8 points pour améliorer votre contenu.",
+    "tags": ["audit", "UX", "typographie"]
+  }
+]

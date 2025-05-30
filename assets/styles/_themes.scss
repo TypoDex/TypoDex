@@ -1,0 +1,167 @@
+// ============================================================================
+// _themes.scss
+// Définition des thèmes en SCSS + génération des variables CSS dynamiques
+// pour permettre un changement de thème via des attributs HTML.
+// ============================================================================
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap");
+
+// Silver Sand
+$silver-sand-50: #f6f7f8;
+$silver-sand-100: #ebedee;
+$silver-sand-200: #dcdfe1;
+$silver-sand-300: #c3cacd;
+$silver-sand-400: #b4bcc0;
+$silver-sand-500: #909aa1;
+$silver-sand-600: #7f8991;
+$silver-sand-700: #727a83;
+$silver-sand-800: #60666d;
+$silver-sand-900: #4f5459;
+$silver-sand-950: #333538;
+
+// Regent St Blue
+$regent-blue-50: #f4f9fb;
+$regent-blue-100: #e8f1f6;
+$regent-blue-200: #cde3ea;
+$regent-blue-300: #99c8d6;
+$regent-blue-400: #6db1c3;
+$regent-blue-500: #4b97ac;
+$regent-blue-600: #387b91;
+$regent-blue-700: #2f6375;
+$regent-blue-800: #2a5362;
+$regent-blue-900: #274753;
+$regent-blue-950: #1a2e37;
+
+// Yellow Green
+$yellow-green-50: #f6f9ec;
+$yellow-green-100: #ecf2d5;
+$yellow-green-200: #d8e6b0;
+$yellow-green-300: #c0d684;
+$yellow-green-400: #a4c259;
+$yellow-green-500: #87a73b;
+$yellow-green-600: #69842c;
+$yellow-green-700: #506625;
+$yellow-green-800: #425222;
+$yellow-green-900: #394621;
+$yellow-green-950: #1c260d;
+
+// Shilo
+$shilo-50: #fcf5f4;
+$shilo-100: #f9e8e7;
+$shilo-200: #f4d6d4;
+$shilo-300: #e8afab;
+$shilo-400: #de908b;
+$shilo-500: #ce6c65;
+$shilo-600: #b8514a;
+$shilo-700: #9a413b;
+$shilo-800: #803934;
+$shilo-900: #6c3430;
+$shilo-950: #391816;
+
+$manrope: "manrope";
+$inter: "inter";
+$thin: 100;
+$extra-light: 200;
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+$extra-bold: 800;
+$black: 900;
+
+$border: rgba($silver-sand-950, 0.2);
+
+$themes: (
+  "red": (
+    body: $shilo-300,
+    color-50: $shilo-50,
+    color-100: $shilo-100,
+    color-200: $shilo-200,
+    color-300: $shilo-300,
+    color-400: $shilo-400,
+    color-500: $shilo-500,
+    color-600: $shilo-600,
+    color-700: $shilo-700,
+    color-800: $shilo-800,
+    color-900: $shilo-900,
+    color-950: $shilo-950,
+  ),
+  "green": (
+    body: $yellow-green-300,
+    color-50: $yellow-green-50,
+    color-100: $yellow-green-100,
+    color-200: $yellow-green-200,
+    color-300: $yellow-green-300,
+    color-400: $yellow-green-400,
+    color-500: $yellow-green-500,
+    color-600: $yellow-green-600,
+    color-700: $yellow-green-700,
+    color-800: $yellow-green-800,
+    color-900: $yellow-green-900,
+    color-950: $yellow-green-950,
+  ),
+  "blue": (
+    body: $regent-blue-300,
+    color-50: $regent-blue-50,
+    color-100: $regent-blue-100,
+    color-200: $regent-blue-200,
+    color-300: $regent-blue-300,
+    color-400: $regent-blue-400,
+    color-500: $regent-blue-500,
+    color-600: $regent-blue-600,
+    color-700: $regent-blue-700,
+    color-800: $regent-blue-800,
+    color-900: $regent-blue-900,
+    color-950: $regent-blue-950,
+  ),
+);
+
+$white-bg: $silver-sand-50;
+$white-primary: $silver-sand-100;
+$white-secondary: $silver-sand-200;
+$white-tertiary: $silver-sand-300;
+
+$text-principal: $silver-sand-950;
+$text-secondaire: $silver-sand-700;
+$text-desactived: $silver-sand-500;
+$text-white: $silver-sand-50;
+
+@each $name, $colors in $themes {
+  [data-color-theme="#{$name}"] {
+    --body-color: #{map-get($colors, body)};
+
+    // Boucle sur chaque clé de $colors
+    @each $key, $value in $colors {
+      @if str-index($key, "color-") {
+        --#{$key}: #{$value};
+      }
+    }
+  }
+}
+
+:root {
+  --body-color: white;
+  --text-color: black;
+}
+
+body {
+  background-color: var(--body-color);
+  color: $text-principal;
+  font-family: sans-serif;
+  padding: 35px;
+  position: relative;
+  z-index: 0;
+  //overflow: hidden;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/assets/images/background.png");
+  mix-blend-mode: multiply;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: -1;
+}

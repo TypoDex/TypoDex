@@ -1,0 +1,218 @@
+// ============================================================================
+// _layout.scss
+// Gestion de la structure globale : grilles, conteneurs, wrappers, colonnes, etc.
+// Peut contenir aussi des helpers comme `.container`, `.grid`, etc.
+// ============================================================================
+
+.site-wrapper {
+  display: grid;
+
+  gap: 1.875rem; //30px
+
+  [class^="content-"] {
+    background: $white-bg;
+    padding: clamp(0.938rem, 5vw, 2.188rem); //(15px, 5vw, 35px)
+    border-radius: 25px;
+  }
+
+  // tablette, téléphones
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+// ============================================================================
+// 📁 INDEX
+// ============================================================================
+
+body[data-color-theme="blue"] {
+  .site-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas:
+      "main main"
+      "irl credits";
+  }
+}
+
+.content- {
+  // ============================================================================
+  // 📁 CONTENT-MAIN
+  // ============================================================================
+
+  &main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 30px;
+    grid-template-areas:
+      "titre nav"
+      "titre content";
+
+    main {
+      display: grid;
+      gap: 15px;
+      grid-area: content;
+    }
+
+    // passage en flex dès que trop petit
+    @media screen and (max-width: 1280px) {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+  // ============================================================================
+  // 📁 CONTENT-IRL
+  // ============================================================================
+
+  &irl {
+    grid-area: irl;
+  }
+
+  // ============================================================================
+  // 📁 CONTENT-CREDITS
+  // ============================================================================
+
+  &credits {
+    grid-area: credits;
+  }
+}
+
+// ============================================================================
+// 📁 RESSOURCES
+// 📁 RESSOURCES
+// 📁 RESSOURCES
+// ============================================================================
+section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+}
+
+// ============================================================================
+// 📁 FILTRES
+// ============================================================================
+
+.hidden {
+  display: none;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 15px 0px;
+
+  button {
+    border: none;
+    cursor: pointer;
+    background: $white-secondary;
+    box-shadow: inset 0px 0px 0px 1px $border;
+    padding: 5px 10px;
+    border-radius: 100px;
+    font-size: 15px;
+    font-family: $inter;
+    white-space: nowrap;
+    font-weight: $medium;
+    transition: all 0.3s ease;
+    &:before {
+      content: "# ";
+      color: var(--color-500);
+    }
+
+    &.active {
+      background: var(--color-400);
+      color: $text-white;
+      &:before {
+        content: "# ";
+        color: var(--color-700);
+      }
+    }
+  }
+}
+
+article {
+  padding: 20px;
+  border-radius: 15px;
+  background: $white-primary;
+  //border: 1px solid $border;
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset 0px 0px 0px 1px $border;
+  transition: all 0.3s ease;
+  gap: 5px;
+
+  span {
+    //margin-bottom: 10px;
+  }
+
+  a {
+    font-family: $manrope;
+    font-size: 20px;
+    font-weight: $bold;
+    color: $text-principal;
+    text-decoration: none;
+    line-height: 18px;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+  }
+
+  p {
+    margin: 10px 0px;
+    max-height: 170px;
+    /* padding-right: 10px; */
+    overflow: auto;
+    @extend %scrollbar;
+  }
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    //background: gray;
+    gap: 5px;
+    flex-wrap: wrap;
+
+    li {
+      background: $white-secondary;
+      box-shadow: inset 0px 0px 0px 1px $border;
+      padding: 5px 10px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-family: $inter;
+      white-space: nowrap;
+      font-weight: $medium;
+      &:before {
+        content: "# ";
+        color: var(--color-500);
+      }
+    }
+  }
+
+  &:hover {
+    //border: 1px solid var(--color-300);
+    box-shadow: inset 0px 0px 0px 2px var(--color-400);
+
+    a {
+      color: var(--color-500);
+    }
+  }
+}
+
+time {
+  place-self: flex-end;
+  font-family: $manrope;
+  font-size: 14px;
+  font-weight: $bold;
+  color: $text-secondaire;
+  margin-bottom: 10px;
+}
+
+section:has(article:not([style*="display: none"])):not(:has(article:not([style*="display: none"]) ~ article:not([style*="display: none"]))) {
+  /* Sélecteur CSS :has + negation pour détecter "exactement 1 article visible" */
+  grid-template-columns: 300px;
+}

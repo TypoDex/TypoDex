@@ -1,0 +1,22 @@
+// ============================================================================
+// main.scss
+// Point d'entrée principal SCSS
+// Ce fichier importe tous les autres fichiers partiels nécessaires à la mise
+// en forme du site, dans un ordre logique.
+// ============================================================================
+
+// 1. Reset & helpers
+@import "reset";
+@import "utils";
+
+// 2. Thèmes & variables
+@import "themes";
+
+// 3. Mise en page générale
+@import "layout";
+
+// 4. Composants réutilisables
+@import "components";
+
+// 5. Pages spécifiques
+@import "pages";

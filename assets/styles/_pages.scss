@@ -1,0 +1,24 @@
+// ============================================================================
+// _pages.scss
+// Styles spécifiques aux pages (ex : .home, .ressources, .directory).
+// Ces règles ne sont pas réutilisables, elles sont spécifiques à chaque vue.
+// ============================================================================
+
+.home {
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.125rem;
+  }
+}
+
+.ressources {
+  .section-title {
+    color: var(--text-color);
+    border-bottom: 2px solid var(--text-color);
+    margin-bottom: 1rem;
+  }
+}

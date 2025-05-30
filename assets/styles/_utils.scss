@@ -1,0 +1,64 @@
+// ============================================================================
+// _utils.scss
+// Mixins, fonctions et raccourcis globaux réutilisables à travers le projet.
+// Exemple : media queries, calculs, raccourcis de couleur, etc.
+// ============================================================================
+
+// Exemple de mixin responsive
+// $breakpoints: (
+//   desktop: 1280px,
+//   tablet: 768px,
+//   mobile-large: 414px,
+//   mobile-iphone: 375px,
+//   mobile-android: 360px,
+// );
+
+// @mixin respond-to($breakpoint) {
+//   $value: map-get($breakpoints, $breakpoint);
+//   @if $value {
+//     @media (max-width: $value) {
+//       @content;
+//     }
+//   } @else {
+//     @warn "⚠️ Le breakpoint '#{$breakpoint}' n'existe pas.";
+//   }
+// }
+
+body {
+  background: pink;
+}
+
+// Desktop : max 1280px
+@media screen and (max-width: 1280px) {
+  body {
+    background-color: #579ee0;
+  }
+}
+
+// Tablette : max 768px
+@media screen and (max-width: 768px) {
+  body {
+    background-color: #81ce80;
+  }
+}
+
+// Mobile Large (iPhone Plus) : max 414px
+@media screen and (max-width: 414px) {
+  body {
+    background-color: #867334;
+  }
+}
+
+// Mobile iPhone 13/14 : max 375px
+@media screen and (max-width: 375px) {
+  body {
+    background-color: #ad3737;
+  }
+}
+
+// Mobile Android : max 360px
+@media screen and (max-width: 360px) {
+  body {
+    background-color: #321c35;
+  }
+}
